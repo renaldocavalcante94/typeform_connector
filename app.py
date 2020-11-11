@@ -14,7 +14,7 @@ async def get_me():
 @typeform_connector.get("/forms")
 async def list_forms():
 
-    return typeform.list_forms()
+    return typeform.list_all_forms()
 
 @typeform_connector.get("/forms/{form_id}")
 async def get_form(form_id: str):
