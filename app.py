@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from typing import Optional
 from connector.typeform import TypeformAPI
 
 
@@ -29,7 +30,8 @@ async def get_responses(form_id: str, completed: bool = True):
 @typeform_connector.get("/forms/{form_id}/all_responses")
 async def get_all_responses(
     form_id: str,
-    completed: bool = True
+    completed: bool = True,
+    after: Optional[str] = None
     ):
 
-    return typeform.get_all_responses(form_id,completed=completed)
+    return typeform.get_all_responses(form_id,completed=completed,after=after)
